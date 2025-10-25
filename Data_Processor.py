@@ -13,13 +13,23 @@ def process_student_data(file_path):
     # Filter students who studied more than 5 hours and had more than 70% attendance
     filtered = df_filled[(df_filled['hours_studied'] > 5) & (df_filled['attendance_percent'] > 70)]
 
-    # Summarize data: Calculate average exam score
+    #  Calculate average exam score
     average_exam_score = df_filled['exam_score'].mean()
+
+    summary = {
+        'mean': df.mean(),
+        'median': df.median(),
+        'std_dev': df.std(),
+        'min': df.min(),
+        'max': df.max(),
+        'count': df.count()
+    }
 
     return {
         'grouped_data': grouped,
         'filtered_data': filtered,
-        'average_exam_score': average_exam_score
+        'average_exam_score': average_exam_score,
+        'summary': summary
     }
 # Example usage
 file_path = 'student_exam_scores.csv'
@@ -28,3 +38,4 @@ result = process_student_data(file_path)
 print("Grouped Data:\n", result['grouped_data'])
 print("\nFiltered Data:\n", result['filtered_data'])
 print("\nAverage Exam Score:", result['average_exam_score'])
+print("\nSummary Statistics:\n", result['summary'])
