@@ -30,3 +30,8 @@ one of the dimension should be 1
 5 6
 
 2 2 2
+
+
+- > loc slice includes the end label (df.loc[0:2] includes label 2)
+
+- > iloc slice excludes the end (df.iloc[0:2] returns positions 0 and 1).
